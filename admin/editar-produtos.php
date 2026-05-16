@@ -7,7 +7,7 @@ if (!isset($_SESSION['nm_login']) || $_SESSION['tipo'] !== 'admin') {
     exit;
 }
 
-// PASSO 5 - salva o UPDATE quando formulário for enviado
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id        = $_POST['id_produto'];
     $nome      = $_POST['nm_produto'];
@@ -31,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 
-// PASSO 2 - busca o produto pelo ID que veio na URL
 $id  = $_GET['id'];
 $sql = "SELECT * FROM produtos WHERE id_produto = ?";
 $stmt = $pdo->prepare($sql);

@@ -1,6 +1,6 @@
 <?php
-session_start(); // Iniciar sessão para controle de login
-require_once "config/conexao.php"; // arquivo da conexão PDO
+session_start(); 
+require_once "config/conexao.php"; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -18,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Verifica se encontrou usuário
+  
     if ($usuario) {
 
-        // Verifica senha criptografada
+     
         if (password_verify($senha, $usuario['senha'])) {
 
             //  Criar variáveis de sessão
@@ -37,13 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
 
         } else {
-            // senha incorreta
+            
             header("Location: index.php?erro=senha");
             exit();
         }
 
     } else {
-        // usuário não encontrado
+        
         header("Location: index.php?erro=usuario");
         exit();
     }
