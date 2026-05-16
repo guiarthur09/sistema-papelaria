@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosa-forte:   #E91E8C;
+    --rosa-medio:   #F06EB0;
+    --rosa-claro:   #FFD6EC;
+    --rosa-palido:  #FFF0F8;
+    --branco:       #FFFFFF;
+    --cinza-texto:  #4A3040;
+    --cinza-leve:   #F7EEF4;
+    --sombra:       rgba(233, 30, 140, 0.15);
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--rosa-palido);
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(233,30,140,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(240,110,176,0.1) 0%, transparent 50%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Elementos decorativos de fundo */
+body::before {
+    content: '✦';
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    font-size: 2rem;
+    color: var(--rosa-medio);
+    opacity: 0.2;
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+body::after {
+    content: '✦';
+    position: fixed;
+    bottom: 8%;
+    right: 6%;
+    font-size: 1.2rem;
+    color: var(--rosa-forte);
+    opacity: 0.15;
+    animation: flutuar 5s ease-in-out infinite reverse;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%       { transform: translateY(-12px) rotate(15deg); }
+}
+
+.container {
+    background: var(--branco);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    width: 100%;
+    max-width: 460px;
+    box-shadow:
+        0 4px 24px var(--sombra),
+        0 1px 4px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+    animation: entrar 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes entrar {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Faixa decorativa topo do card */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--rosa-forte), var(--rosa-medio), var(--rosa-forte));
+    background-size: 200% 100%;
+    animation: brilho 3s linear infinite;
+}
+
+@keyframes brilho {
+    0%   { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+/* Logo / título */
+.logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-icone {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+    box-shadow: 0 4px 16px var(--sombra);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cinza-texto);
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+
+.subtitulo {
+    text-align: center;
+    color: var(--rosa-medio);
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--cinza-texto);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+input {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--rosa-claro);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--cinza-texto);
+    background: var(--cinza-leve);
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--rosa-forte);
+    background: var(--branco);
+    box-shadow: 0 0 0 3px rgba(233, 30, 140, 0.1);
+}
+
+input::placeholder {
+    color: #C9A8C0;
+    font-weight: 300;
+}
+
+button[type="submit"] {
+    margin-top: 0.5rem;
+    padding: 0.85rem;
+    background: linear-gradient(135deg, var(--rosa-forte), var(--rosa-medio));
+    color: var(--branco);
+    border: none;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 14px var(--sombra);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--sombra);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+p {
+    text-align: center;
+    font-size: 0.88rem;
+    color: #9A7090;
+    margin-top: 0.5rem;
+}
+
+p a {
+    color: var(--rosa-forte);
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+p a:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}
+
+/* Mensagem de erro */
+.erro-login {
+    background: #FFF0F0;
+    border: 1px solid #FFBBBB;
+    color: #C0392B;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    text-align: center;
+}

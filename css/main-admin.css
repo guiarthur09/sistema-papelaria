@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosa-forte:  #E91E8C;
+    --rosa-medio:  #F06EB0;
+    --rosa-claro:  #FFD6EC;
+    --rosa-palido: #FFF0F8;
+    --branco:      #FFFFFF;
+    --cinza-texto: #4A3040;
+    --sombra:      rgba(233, 30, 140, 0.15);
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--rosa-palido);
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(233,30,140,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(240,110,176,0.1) 0%, transparent 50%);
+    min-height: 100vh;
+    color: var(--cinza-texto);
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--branco);
+    border-bottom: 2px solid var(--rosa-claro);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 2rem;
+    box-shadow: 0 2px 12px var(--sombra);
+}
+
+.topbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.topbar-logo img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease;
+}
+
+.topbar-logo:hover img {
+    transform: rotate(10deg) scale(1.1);
+    box-shadow: 0 6px 20px var(--sombra);
+}
+
+.topbar-logo span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--rosa-forte);
+    transition: color 0.3s ease;
+}
+
+.topbar-logo:hover span {
+    color: var(--rosa-medio);
+}
+
+.topbar nav {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.topbar nav a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cinza-texto);
+    padding: 0.45rem 1rem;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.topbar nav a:hover {
+    background: var(--rosa-claro);
+    color: var(--rosa-forte);
+}
+
+.topbar nav a.sair {
+    background: linear-gradient(135deg, var(--rosa-forte), var(--rosa-medio));
+    color: var(--branco);
+}
+
+.topbar nav a.sair:hover {
+    opacity: 0.85;
+}
+
+/* Badge admin na topbar */
+.badge-admin {
+    background: var(--rosa-claro);
+    color: var(--rosa-forte);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ── Container principal ── */
+.container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    animation: entrar 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes entrar {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Card de boas-vindas ── */
+.card-boas-vindas {
+    background: var(--branco);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 4px 24px var(--sombra);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.card-boas-vindas::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--rosa-forte), var(--rosa-medio), var(--rosa-forte));
+    background-size: 200% 100%;
+    animation: brilho 3s linear infinite;
+}
+
+@keyframes brilho {
+    0%   { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+.card-boas-vindas img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 16px var(--sombra);
+}
+
+.card-boas-vindas h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--cinza-texto);
+    margin-bottom: 0.4rem;
+}
+
+.card-boas-vindas h2 span {
+    color: var(--rosa-forte);
+}
+
+.subtitulo {
+    color: var(--rosa-medio);
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+/* ── Cards de atalho ── */
+.atalhos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+}
+
+.atalho-card {
+    background: var(--branco);
+    border-radius: 18px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--cinza-texto);
+    box-shadow: 0 2px 12px var(--sombra);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1.5px solid var(--rosa-claro);
+}
+
+.atalho-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--sombra);
+    border-color: var(--rosa-forte);
+}
+
+.atalho-card .icone {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.atalho-card span:last-child {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
