@@ -140,6 +140,9 @@ sistema-papelaria/
 │   ├── produtos.css
 │   ├── produtos-admin.css
 │   └── editar-usuarios-produtos.css
+├── database/
+│   ├── script-create-database.sql
+│   ├── script-create-tables.sql
 ├── img/
 │   └── logo.png
 ├── cadastro.php
@@ -147,8 +150,6 @@ sistema-papelaria/
 ├── logout.php
 ├── main.php
 ├── produtos.php
-├── banco_sql.sql
-├── .gitignore
 └── README.md
 ```
 
