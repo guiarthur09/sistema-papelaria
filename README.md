@@ -77,7 +77,7 @@ git clone https://github.com/guiarthur09/sistema-papelaria.git
 
 - Abra o phpMyAdmin
 - Crie um banco chamado `sistema_papelaria`
-- Importe o arquivo `banco_sql.sql`
+- Importe o arquivo `database/`
 
 ### 4. Configure a conexão
 
@@ -132,9 +132,7 @@ sistema-papelaria/
 │   └── produtos-admin.php
 ├── config/
 │   ├── conexao.php           ← não versionado
-│   └── conexao.example.php   ← modelo de configuração
 ├── css/
-│   ├── style.css
 │   ├── main.css
 │   ├── main-admin.css
 │   ├── produtos.css
@@ -144,7 +142,7 @@ sistema-papelaria/
 │   ├── script-create-database.sql
 │   ├── script-create-tables.sql
 ├── img/
-│   └── logo.png
+│   └── icon-mimos-de-papel.jpg
 ├── cadastro.php
 ├── login.php
 ├── logout.php
